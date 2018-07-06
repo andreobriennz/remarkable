@@ -1,4 +1,4 @@
 # remarkable 
-## Compile multiple files to markdown with automated theming
+## Combine and compile multiple markdown files into markup with automatically generated theming to suit
 
 Project is currently under development.
