@@ -14,7 +14,8 @@ thesis = {
 }
 
 book = {
-    'type': 'book',
+    'name': 'book',
+    'style': 'book',
     'theme': '',
     'title': 'The Day of Pillows',
     'subtitle': '',
