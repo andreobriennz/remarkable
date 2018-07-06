@@ -10,14 +10,23 @@ def html(path):
     
     text = bleach.clean( text )
 
-    html = markdown.markdown(text)
+    html = markdown.markdown( text )
     html = bleach.linkify( html )
 
     file.close()
 
-    post = {
-        'html': html,
-        'text': text,
-    }
+    return html
 
-    return post
+def raw(path):
+    file = open(path, 'r+')
+
+    html = file.read()
+    
+    # text = bleach.clean( text )
+
+    # html = markdown.markdown( text )
+    # html = bleach.linkify( html )
+
+    file.close()
+
+    return html
