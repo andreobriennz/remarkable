@@ -21,9 +21,9 @@ book = {
     'subtitle': '',
     'root_file': 'book/',
     'sections': [ # consider allowing an array of arrays to imply multiple parts (or alt have 'parts')
-        'part_1/chapter_1.md',
-        'part_1/chapter_2.md',
-        'part_1/chapter_3.md',
+        'part_1/chapter_1',
+        'part_1/chapter_2',
+        'part_1/chapter_3',
     ]
 }
 
