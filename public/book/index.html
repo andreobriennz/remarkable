@@ -7,13 +7,23 @@
     <title>Book</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../lib/theming/kube-flexbox/dist/kube-flexbox.css">
     
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
     <div id="app" class="container">
-        <article id='part_1/chapter_1.md'>
+
+<nav id="nav" class="nav">
+<p><a href="/" rel="nofollow">Home</a>
+<a href="/latest" rel="nofollow">Latest</a>
+<a href="/most-popular" rel="nofollow">Most Popular</a>
+<a href="/more" rel="nofollow">More</a>
+<a href="/test2" rel="nofollow">Test 2</a></p>
+</nav>
+
+
+<article id='part_1/chapter_1.md'>
 <h1>Chapter 1</h1>
 <p>&lt;script&gt;alert()&lt;/script&gt;</p>
 <p>&lt;style&gt;* { display: none; }&lt;/style&gt;</p>
@@ -46,12 +56,19 @@
 </article>
 
 
+
+<footer>
+    <a href="/">Home</a>
+    <a href="/latest">Latest</a>
+    <a href="/most-popular">Most Popular</a>
+    
+    <p>
+        <a href="https://andreobrien.me">&copy;2018 Andre OBrien</a>
+    </p>
+</footer>
     </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
 <script src="app.js"></script>
