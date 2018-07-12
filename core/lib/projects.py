@@ -2,20 +2,22 @@ import imp
 from pathlib import Path
 import datetime
 tasks = imp.load_source('tasks', 'settings/projects.py')
-load = imp.load_source('loader', 'lib/loader.py')
-saver = imp.load_source('saver', 'lib/saver.py')
+load = imp.load_source('loader', 'core/lib/loader.py')
+saver = imp.load_source('saver', 'core/lib/saver.py')
 
 def load_section( path, default, tag = 'div' ):
     end_tag = tag.split()[0]
 
-    if Path( path+'.html' ).is_file():
-        nav = load.raw( path+'.html' )
+    if '.css' in path:
+        file = '\n<style>\n'+load.raw( path )+'\n</style>\n'
+    elif Path( path+'.html' ).is_file():
+        file = load.raw( path+'.html' )
     elif Path( path+'.md' ).is_file():
-        nav = '\n<'+tag+'>\n'+load.html( path+'.md' )+'\n</'+end_tag+'>\n'
+        file = '\n<'+tag+'>\n'+load.html( path+'.md' )+'\n</'+end_tag+'>\n'
     else:
-        nav = load.raw( default )
+        file = load.raw( default )
     
-    return nav
+    return file
 
 def index():
     task = tasks.tasks[0]
@@ -29,6 +31,11 @@ def index():
     for markdown in markdowns:
         markup = load.html( 'src/' + root + markdown )
         main += "<article id='{}'>\n{}\n</article>\n\n".format( markdown, markup )
+
+    style = load_section(
+        'lib/theming/'+root+'custom.css',
+        'lib/theming/'+root+'custom.css',
+    )
     
     nav = load_section( 
         'src/' + root + 'partials/nav',
@@ -44,10 +51,11 @@ def index():
 
     page = load.raw( 'lib/theming/index.html' ).format(
         title = name.title(),
+        name = name,
+        style = style,
         nav = nav,
         main = main,
         footer = footer,
-        style = name,
         script = name,
     )
 
