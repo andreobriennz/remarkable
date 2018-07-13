@@ -11,7 +11,7 @@ Note: This project assumes a basic knowledge of the terminal, HTML and markdown 
 - Lets you manage multiple sites/projects together in a modular way
 - Generates sites as a single page app (coming soon)
 
-### How to Use
+## How to Use
 ### Basic Usage
 - Make sure Python 3 is installed on your computer. If not, install it [here](https://www.python.org/downloads)
 - Create a new project with `python -c "import manage; manage.create('name_of_project')"` OR type `python -c "import manage; manage.start_gui()"` to create the project via the new user interface!
