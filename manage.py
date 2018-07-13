@@ -17,6 +17,7 @@ def run( project_name ):
     projects.index( project_name)
     print('Compiled!')
 
+
 def create( project_name ):
     shutil.copytree('core/default_project', 'projects/'+project_name)
 
@@ -36,3 +37,7 @@ def create( project_name ):
         f.truncate()     # remove remaining part
 
     print('Created in: projects/'+project_name+'!')
+
+
+def start_gui():
+    gui_create_project = imp.load_source('gui_create_project', 'core/GUI/create_project.py')
