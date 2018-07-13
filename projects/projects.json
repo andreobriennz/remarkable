@@ -10,6 +10,22 @@
                 "part_1/chapter_2",
                 "part_1/chapter_3"
             ]
+        },
+        "book2": {
+            "name": "book2",
+            "theme": "blog",
+            "title": "",
+            "subtitle": "",
+            "sections": [
+                "example"
+            ]
+        },
+        "book6": {
+            "name": "book6",
+            "theme": "",
+            "title": "",
+            "subtitle": "",
+            "sections": []
         }
     }
 }
