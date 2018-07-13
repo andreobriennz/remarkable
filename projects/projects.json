@@ -1,0 +1,15 @@
+{
+    "projects": {
+        "book": {
+            "name": "book",
+            "theme": "blog",
+            "title": "",
+            "subtitle": "",
+            "sections": [
+                "part_1/chapter_1",
+                "part_1/chapter_2",
+                "part_1/chapter_3"
+            ]
+        }
+    }
+}
