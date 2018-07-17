@@ -6,9 +6,7 @@
             "title": "",
             "subtitle": "",
             "sections": [
-                "part_1/chapter_1",
-                "part_1/chapter_2",
-                "part_1/chapter_3"
+                "part_1/*"
             ]
         },
         "book2": {
@@ -20,12 +18,14 @@
                 "example"
             ]
         },
-        "book6": {
-            "name": "book6",
+        "test_wildcard": {
+            "name": "test_wildcard",
             "theme": "",
             "title": "",
             "subtitle": "",
-            "sections": []
+            "sections": [
+                "*"
+            ]
         }
     }
 }

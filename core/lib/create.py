@@ -11,7 +11,7 @@ def create( project_name ):
         "theme": "",
         "title": "",
         "subtitle": "",
-        "sections": [],
+        "sections": ["*"],
     }
 
     with open('projects/projects.json', 'r+') as f:
