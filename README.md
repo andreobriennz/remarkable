@@ -18,11 +18,11 @@ First, make sure Python 3 is installed on your computer. If not, install it [her
 Then choose one of the following methods:
 
 **Via User Interface**
-- `python -c "import manage; manage.start_gui()"` to create the project via the new user interface!
+- `python manage.py open` or `python manage.py start` to create the project via the new user interface!
 - Follow on screen prompts to create a project (note that editing project is not yet supported)
 
 **Via CLI or manually**
-- Create a new project with `python -c "import manage; manage.create('name_of_project')"`
+- Create a new project with `python manage.py create=name_of_project`
 
 **Manually**
 - There will be a folder created in the 'projects/' directory matching the name of your new project. This is where all your project specific code and content is. Inside here, you will see a directory called 'content' - this is where you put all your content (blogs, book chapters, etc). Content in here should be all in markdown (files ending in .md)
@@ -32,7 +32,7 @@ Then choose one of the following methods:
 For now editing project needs to be done by creating and editing markdown files in projects/name_of_project/content/. A user interface (GUI) is currently being developed.
 
 ### 3. Compile to Website
-- Compile changes with `python -c "import manage; manage.run('name_of_project')"`
+- Compile changes with `python manage.py compile=name_of_project`
 - Site will appear in public/name_of_project
 
 
