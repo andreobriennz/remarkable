@@ -32,7 +32,7 @@ class Layout:
             self.partials[section[0]] = self.load_section(self.root+section[1])
     
     def page(self):
-        return load.raw('core/default_project/layouts/index.html').format(
+        return load.raw('projects/'+self.name+'/layouts/index.html').format(
             title=self.name.title(),
             name=self.name,
             style=self.partials['style'],
