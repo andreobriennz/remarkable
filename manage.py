@@ -4,6 +4,7 @@ import json
 import argparse
 
 projects = imp.load_source('projects', 'core/lib/compile.py')
+create = imp.load_source('create', 'core/lib/create.py')
 
 version = '0.0.0'
 
@@ -20,29 +21,8 @@ def run(project_name):
     print('Compiled!')
 
 
-def create(project_name):
-    shutil.copytree('core/default_project', 'projects/'+project_name)
-
-    new_project_data = {
-        "name": project_name,
-        "theme": "",
-        "title": "",
-        "subtitle": "",
-        "sections": ["*"],
-    }
-
-    with open('projects/projects.json', 'r+') as f:
-        data = json.load(f)
-        data['projects'][project_name] = new_project_data
-        f.seek(0)        # <--- should reset file position to the beginning.
-        json.dump(data, f, indent = 4)
-        f.truncate()     # remove remaining part
-
-    print('Created in: projects/'+project_name+'!')
-
-
 def start_gui():
-    gui_create_project = imp.load_source('gui_create_project', 'core/GUI/create_project.py')
+    gui_create_project = imp.load_source('gui_create_project', 'core/GUI/index.py')
 
 
 # argparse
@@ -62,4 +42,4 @@ if args.task:
         run(args.task.split('compile=')[1])
     
     elif 'create=' in args.task:
-        create(args.task.split('create=')[1])
+        create.create(args.task.split('create=')[1])
