@@ -1,18 +1,17 @@
 from tkinter import *
 import os
 import imp
-# import shutil
 projects = imp.load_source('projects', 'core/lib/compile.py')
 
+
 file_ment = StringVar()
+
 
 def files(project_name, root):
     global _global_project_name 
     _global_project_name = project_name
-    # view files frame
-    #  adapted from lib/compile.py. Move into own folder or lib/load.py
     import json
-    load = imp.load_source('loader', 'core/lib/loader.py')
+    # load = imp.load_source('loader', 'core/lib/loader.py')
 
     with open('projects/projects.json') as f:
         data = json.load(f)
@@ -37,44 +36,40 @@ def files(project_name, root):
     get_markdown_paths(markdown_paths)
 
     files_frame = Frame()
-    files_frame.pack(side = BOTTOM)
+    files_frame.pack(side=BOTTOM)
 
-    space = Label(files_frame, text = '').pack()
+    space = Label(files_frame, text='').pack()
 
-    title = Label(files_frame, text = project_name.title(), font='Helvetica 18 bold').pack()
+    title = Label(files_frame, text=project_name.title(), font='Helvetica 18 bold').pack()
 
     for path in paths:
-        file = Button(files_frame, text = path, command = lambda path = path: project(path, project_name)).pack()
+        file = Button(files_frame, text=path, command=lambda path=path: project(path, project_name)).pack()
 
     # create new file
-    title = Label(files_frame, text = 'Create new file:').pack()
+    title = Label(files_frame, text='Create new file:').pack()
 
-    file_name_input = Entry( files_frame, textvariable = file_ment ).pack()
+    file_name_input = Entry(files_frame, textvariable=file_ment).pack()
 
-    button_create = Button( files_frame, text = 'Create!', command=gui_create_file).pack( side = LEFT )
+    button_create = Button(files_frame, text='Create!', command=gui_create_file).pack(side=LEFT)
 
 
 def project(path, project_name):
     # edit file
     edit_file_frame = Frame()
-    edit_file_frame.pack(side = BOTTOM)
+    edit_file_frame.pack(side=BOTTOM)
 
-    space = Label(edit_file_frame, text = '').pack()
+    space = Label(edit_file_frame, text='').pack()
 
-    title = Label(edit_file_frame, text = project_name.title()+': '+path, font='Helvetica 18 bold').pack()
+    title = Label(edit_file_frame, text=project_name.title()+': '+path, font='Helvetica 18 bold').pack()
 
     load = imp.load_source('loader', 'core/lib/loader.py')
-    markdown = load.raw( 'projects/'+project_name+'/content/'+path+'.md' )
+    markdown = load.raw('projects/'+project_name+'/content/'+path+'.md')
 
     ment = StringVar()
     ment.set(markdown)
     textarea = Text(edit_file_frame, height=20)  # textvariable = ment,
     textarea.insert(END, markdown)
     textarea.pack()
-    
-    # loop and output projects
-    # projects = os.listdir('projects')
-    # projects = sorted(projects)
 
 
 def gui_create_file():
@@ -82,11 +77,11 @@ def gui_create_file():
     file_name = file_ment.get().replace(' ', '_')
     file_name = file_name.replace('.', '_')
     
-    if len(file_name ) > 0 and len( file_name) < 50 and '/' not in file_name:
+    if len(file_name) > 0 and len(file_name) < 50 and '/' not in file_name:
         file_name = 'projects/'+_global_project_name+'/content/'+file_name+'.md'
         file = open(file_name, "w+")
-        print(file_name+' created!') # add try/catch
-        # add file to json
+        print(file_name+' created!')  # add try/catch
+        # !! add file to json
         file.close()
     else:
         print('Invalid project name characters or length')
