@@ -1,13 +1,13 @@
 # remarkable 
 **Python Site and Subsite Generator: Combine and compile markdown files into a website with automatically generated styling to suit**
 
-Note: This project is currently under development. There will be bugs, and the project may change suddenly.
+Note: This project is currently under development. There will be bugs, and the project may change suddenly. It is also recommended to keep a backup of any important work as there is a small chance of a bug causing a loss of content when workign through the GUI.
 
 Note: This project assumes a basic knowledge of the terminal, HTML and markdown files in order to use it.
 
 ## What Does this Project Do?
-- Provides a GUI and CLI for creating and managing projects (GUI currently allows creating new projects, will soon also allow editing)
 - Takes markdown files, convert them to HTML, concatenate these files together, along with page partials, and generates a website from this
+- Automates and simplifies this process via a GUI and CLI to create and edit projects
 - Lets you manage multiple sites/projects together in a modular way
 - Generates sites as a single page app (coming soon)
 
