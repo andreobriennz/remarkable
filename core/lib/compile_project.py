@@ -1,9 +1,9 @@
+from core.lib import loader as load
+from core.lib import saver
+from core.lib import Layout
+
 import os
-import imp
 import json
-load = imp.load_source('loader', 'core/lib/loader.py')
-saver = imp.load_source('saver', 'core/lib/saver.py')
-Layout = imp.load_source('Layout', 'core/lib/Layout.py')
 
 
 with open('projects/projects.json') as f:
