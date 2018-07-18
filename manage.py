@@ -17,12 +17,12 @@ def test(test_string=''):
     
 
 def run(project_name):
-    projects.index( project_name)
+    compile_project.index(project_name)
     print('Compiled!')
 
 
 def start_gui():
-    gui_create_project = imp.load_source('gui_create_project', 'core/GUI/index.py')
+    gui.index()
 
 
 # argparse

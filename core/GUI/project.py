@@ -8,9 +8,6 @@ import os
 file_ment = StringVar()
 
 
-exists = False
-
-
 def files(project_name, root):
     global _global_project_name 
     _global_project_name = project_name
@@ -59,8 +56,7 @@ def files(project_name, root):
 
 def project(path, project_name):
     close()
-    # edit file
-    exists = True
+
     global edit_file_frame
     edit_file_frame = Frame()
     edit_file_frame.pack(side=BOTTOM)
