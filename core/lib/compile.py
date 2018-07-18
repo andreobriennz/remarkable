@@ -47,7 +47,7 @@ def index(project_name):
     main += get_html(markdown_paths)
 
     layout = Layout.Layout(
-        'projects/book/',
+        project_details,
         main,
         [
             ['style', 'assets/custom.css'],

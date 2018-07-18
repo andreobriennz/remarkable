@@ -5,14 +5,14 @@ load = imp.load_source('loader', 'core/lib/loader.py')
 
 
 class Layout:
-    def __init__(self, root, main, sections):
-        self.root = root
-        self.name = root
+    def __init__(self, project_details, main, sections):
+        self.name = project_details['name']
+        self.root = 'projects/'+self.name+'/'
         self.main = main
         self.sections = sections
         self.partials = {}
 
-    def load_section(self, path, tag='div', func=''):
+    def load_section(self, path, tag='div'):
         end_tag = tag.split()[0]
 
         if '.css' in path and Path(path).is_file():
@@ -24,16 +24,12 @@ class Layout:
         else:
             print('path does not exist:'+path)
             file = ''
-        
+
         return file
     
     def load_sections(self):
         for section in self.sections:
             self.partials[section[0]] = self.load_section(self.root+section[1])
-        # if func == '':
-        #     self.load_section()
-        # else:
-        #     self.load_section().func
     
     def page(self):
         return load.raw('core/default_project/layouts/index.html').format(
@@ -45,14 +41,3 @@ class Layout:
             footer=self.partials['footer'].format(year=datetime.date.today().year),
             script=self.name,
         )
-
-
-
-# layout = Layout(
-#     'projects/book/content/',
-#     [
-#         ['style', 'assets/custom.css'],
-#         ['nav', 'partials/nav', 'nav id="nav" class="nav"'],
-#         ['footer', 'partials/footer', '', format(year=datetime.date.today().year)]
-#     ]
-# )
