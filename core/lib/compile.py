@@ -1,33 +1,13 @@
 import os
 import imp
-from pathlib import Path
-import datetime
-# tasks = imp.load_source('tasks', 'projects/projects.py')
+import json
 load = imp.load_source('loader', 'core/lib/loader.py')
 saver = imp.load_source('saver', 'core/lib/saver.py')
+Layout = imp.load_source('Layout', 'core/lib/Layout.py')
 
-# switch to using projects.json instead of projects.py:
-import json
-from pprint import pprint
 
 with open('projects/projects.json') as f:
     data = json.load(f)
-
-
-def load_section( path, tag = 'div' ):
-    end_tag = tag.split()[0]
-
-    if '.css' in path and Path( path ).is_file():
-        file = '\n<style>\n'+load.raw( path )+'\n</style>\n'
-    elif Path( path+'.html' ).is_file():
-        file = load.raw( path+'.html' )
-    elif Path( path+'.md' ).is_file():
-        file = '\n<'+tag+'>\n'+load.html( path+'.md' )+'\n</'+end_tag+'>\n'
-    else:
-        print('path does not exist:'+path)
-        file = ''
-    
-    return file
 
 
 def index(project_name):
@@ -67,28 +47,16 @@ def index(project_name):
     
     main += get_html(markdown_paths)
 
-    style = load_section(
-        root+'assets/custom.css'
+    layout = Layout.Layout(
+        'projects/book/',
+        main,
+        [
+            ['style', 'assets/custom.css'],
+            ['nav', 'partials/nav', 'nav id="nav" class="nav"'],
+            ['footer', 'partials/footer']
+        ]
     )
+    layout.load_sections()
+    page = layout.page()
 
-    nav = load_section( 
-        root + 'partials/nav',
-        'nav id="nav" class="nav"',
-    )
-
-    footer = load_section( 
-        root + 'partials/footer',
-        'footer',
-    ).format( year = datetime.date.today().year )
-
-    page = load.raw( 'core/default_project/layouts/index.html' ).format(
-        title = name.title(),
-        name = name,
-        style = style,
-        nav = nav,
-        main = main,
-        footer = footer,
-        script = name,
-    )
-
-    saver.save( page, 'public/'+name+'/index.html' )
+    saver.save(page, 'public/'+name+'/index.html')
