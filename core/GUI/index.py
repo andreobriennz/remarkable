@@ -3,13 +3,7 @@ from tkinter import *
 # projects = imp.load_source('manage', '../../manage.py')
 
 
-# should be in core/lib/ and called both here and in manage.py
 import imp
-import shutil
-import json
-# projects = imp.load_source('projects', 'core/lib/compile.py')
-# create = imp.load_source('create', 'core/lib/create.py')
-
 
 
 root = Tk()
@@ -23,5 +17,6 @@ root = gui_projects.index(root)
 root.mainloop()
 
 
-def close(frame):
-    pass
+# add function to close frames
+# def close(frame):
+#     pass

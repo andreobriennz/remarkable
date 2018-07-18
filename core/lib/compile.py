@@ -13,12 +13,11 @@ with open('projects/projects.json') as f:
 def index(project_name):
     project_details = data['projects'][project_name]
     name = project_details['name']
-    style = project_details['theme']
     root = 'projects/'+name+'/'
 
-    if not os.path.exists( 'public/'+name ):
-        os.makedirs( 'public/'+name )
-        os.makedirs( 'public/'+name+'/content/' )
+    if not os.path.exists('public/'+name):
+        os.makedirs('public/'+name)
+        os.makedirs('public/'+name+'/content/')
     
     markdown_paths = project_details['sections']
     main = ''
@@ -37,9 +36,9 @@ def index(project_name):
                 main += get_html(markdown_paths)
                     
             else:
-                markup = load.html( root+'content/'+markdown_path+'.md' )
+                markup = load.html(root+'content/'+markdown_path+'.md')
                 markdown_path = markdown_path.replace('/', '__')
-                main += "<article id='{}'>\n{}\n</article>\n\n".format( markdown_path, markup )
+                main += "<article id='{}'>\n{}\n</article>\n\n".format(markdown_path, markup)
                 
                 saver.save(markup, 'public/'+name+'/content/'+markdown_path+'.html')
 
