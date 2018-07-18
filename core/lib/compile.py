@@ -30,7 +30,7 @@ def load_section( path, tag = 'div' ):
     return file
 
 
-def index( project_name ):
+def index(project_name):
     project_details = data['projects'][project_name]
     name = project_details['name']
     style = project_details['theme']
@@ -40,7 +40,7 @@ def index( project_name ):
         os.makedirs( 'public/'+name )
         os.makedirs( 'public/'+name+'/content/' )
     
-    markdowns = project_details['sections']
+    markdown_paths = project_details['sections']
     main = ''
 
     def get_html(markdown_paths):
@@ -65,7 +65,7 @@ def index( project_name ):
 
         return main
     
-    main += get_html(markdowns)
+    main += get_html(markdown_paths)
 
     style = load_section(
         root+'assets/custom.css'
