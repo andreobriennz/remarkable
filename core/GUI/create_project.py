@@ -5,56 +5,36 @@ from tkinter import *
 
 # should be in core/lib/ and called both here and in manage.py
 import imp
-import shutil
-import json
+# import shutil
+# import json
 projects = imp.load_source('projects', 'core/lib/compile.py')
-def create( project_name ):
-    shutil.copytree('core/default_project', 'projects/'+project_name)
-
-    new_project_data = {
-        "name": project_name,
-        "theme": "",
-        "title": "",
-        "subtitle": "",
-        "sections": ["*"],
-    }
-
-    with open('projects/projects.json', 'r+') as f:
-        data = json.load(f)
-        data['projects'][project_name] = new_project_data
-        f.seek(0)        # <--- should reset file position to the beginning.
-        json.dump(data, f, indent = 4)
-        f.truncate()     # remove remaining part
-
-    print('Created in: projects/'+project_name+'!')
-
+create = imp.load_source('create', 'core/lib/create.py')
 
 def gui_create_project():
     project_name = ment.get().replace(' ', '_')
     
     if len( project_name ) > 0 and len( project_name ) < 50 and '/' not in project_name:
-        create( project_name )
+        create.create( project_name )
     else:
         print('Invalid project name characters or length')
 
     
+def index(root):
+    top_frame = Frame( root )
+    top_frame.pack()
 
+    bottom_frame = Frame( root )
+    bottom_frame.pack()  #  side = BOTTOM 
 
-root = Tk()
+    title = Label( top_frame, text='Create a new project', font='Helvetica 18 bold').pack()
+    description = Label( top_frame, text='Enter project name:').pack()
 
-top_frame = Frame( root )
-top_frame.pack()
+    ment = StringVar()
+    project_name_input = Entry( bottom_frame, textvariable = ment ).pack()
 
-bottom_frame = Frame( root )
-bottom_frame.pack( side = BOTTOM )
+    button_create = Button( bottom_frame, text = 'Create!', command = gui_create_project ).pack( side = LEFT )
 
-title = Label( top_frame, text = 'Create a new project').pack()
-description = Label( top_frame, text = 'Enter project name:').pack()
-
-ment = StringVar()
-project_name_input = Entry( bottom_frame, textvariable = ment ).pack()
-
-button_create = Button( bottom_frame, text = 'Create!', command = gui_create_project ).pack( side = LEFT )
+    return root
 
 # List existing projects:
 # current_projects_frame = Frame( root )
@@ -63,7 +43,6 @@ button_create = Button( bottom_frame, text = 'Create!', command = gui_create_pro
 # projects_list = Label( top_frame, text = projects_list).pack()
 
 
-root.mainloop()
 
 
 
