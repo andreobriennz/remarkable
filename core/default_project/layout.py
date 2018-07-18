@@ -1,5 +1,4 @@
-import imp
-Layout = imp.load_source('Layout', 'core/lib/Layout.py')
+from core.lib import Layout
 
 
 custom_layout = False

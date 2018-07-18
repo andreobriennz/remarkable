@@ -1,22 +1,17 @@
 from tkinter import *
-# import imp
-# projects = imp.load_source('manage', '../../manage.py')
-
-
 import imp
 
+def quit(self):
+    print('close')
+    self.root.destroy()
 
-root = Tk()
+def index():
+    root = Tk()
 
-gui_create = imp.load_source('create', 'core/GUI/create_project.py')
-root = gui_create.index(root)
+    gui_create = imp.load_source('create', 'core/GUI/create_project.py')
+    root = gui_create.index(root)
 
-gui_projects = imp.load_source('create', 'core/GUI/projects.py')
-root = gui_projects.index(root)
-
-root.mainloop()
-
-
-# add function to close frames
-# def close(frame):
-#     pass
+    gui_projects = imp.load_source('create', 'core/GUI/projects.py')
+    root = gui_projects.index(root)
+    
+    root.mainloop()

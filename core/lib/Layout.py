@@ -1,7 +1,7 @@
-import imp
+from core.lib import loader as load
+
 from pathlib import Path
 import datetime
-load = imp.load_source('loader', 'core/lib/loader.py')
 
 
 class Layout:

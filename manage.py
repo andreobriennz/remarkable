@@ -1,15 +1,15 @@
-import imp
-import shutil
-import json
+from core.lib import create
+from core.lib import compile_project
+from core.GUI import index as gui
+
 import argparse
 
-projects = imp.load_source('projects', 'core/lib/compile.py')
-create = imp.load_source('create', 'core/lib/create.py')
 
 version = '0.0.0'
 
+
 # run with: runp manage.py test
-def test(test_string = ''):
+def test(test_string=''):
     if test_string != '':
         print('Test passed! Message: '+test_string)
     else:

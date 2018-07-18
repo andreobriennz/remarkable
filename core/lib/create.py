@@ -1,8 +1,5 @@
-# not currently used - but CLI and GUI should both call this to keep code DRY
-import imp
 import shutil
 import json
-projects = imp.load_source('projects', 'core/lib/compile.py')
 
 
 def create(project_name):

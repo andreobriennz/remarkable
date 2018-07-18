@@ -1,17 +1,20 @@
+from core.lib import loader as load
+
 from tkinter import *
+from core.lib import compile_project
 import os
-import imp
-projects = imp.load_source('projects', 'core/lib/compile.py')
 
 
 file_ment = StringVar()
+
+
+exists = False
 
 
 def files(project_name, root):
     global _global_project_name 
     _global_project_name = project_name
     import json
-    # load = imp.load_source('loader', 'core/lib/loader.py')
 
     with open('projects/projects.json') as f:
         data = json.load(f)
@@ -35,6 +38,7 @@ def files(project_name, root):
     paths = []
     get_markdown_paths(markdown_paths)
 
+    global files_frame
     files_frame = Frame()
     files_frame.pack(side=BOTTOM)
 
@@ -62,7 +66,6 @@ def project(path, project_name):
 
     title = Label(edit_file_frame, text=project_name.title()+': '+path, font='Helvetica 18 bold').pack()
 
-    load = imp.load_source('loader', 'core/lib/loader.py')
     markdown = load.raw('projects/'+project_name+'/content/'+path+'.md')
 
     ment = StringVar()
