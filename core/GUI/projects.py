@@ -34,3 +34,9 @@ def index(root):
             project_title = Button(projects_frame, text=project, command=lambda project=project: open_project(project, projects_frame, root)).pack()
         
     return root
+
+
+def close():
+    projects_frame.pack_forget()
+    projects_frame.destroy()
+    print('closed project')

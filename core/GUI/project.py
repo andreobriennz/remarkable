@@ -58,7 +58,10 @@ def files(project_name, root):
 
 
 def project(path, project_name):
+    close()
     # edit file
+    exists = True
+    global edit_file_frame
     edit_file_frame = Frame()
     edit_file_frame.pack(side=BOTTOM)
 
@@ -77,6 +80,7 @@ def project(path, project_name):
 
 def gui_create_file():
     print(file_ment)
+    global file_frame
     file_name = file_ment.get().replace(' ', '_')
     file_name = file_name.replace('.', '_')
     
@@ -88,3 +92,14 @@ def gui_create_file():
         file.close()
     else:
         print('Invalid project name characters or length')
+
+
+def close():
+    try:
+        edit_file_frame.pack_forget()
+        edit_file_frame.destroy()
+        print('closed project edit')
+    except NameError:
+        print('nothing to close')
+    # else:
+    #     print('')
