@@ -2,7 +2,7 @@ import shutil
 import json
 
 
-def create(project_name):
+def project(project_name):
     shutil.copytree('core/default_project', 'projects/'+project_name)
 
     new_project_data = {
@@ -21,3 +21,9 @@ def create(project_name):
         f.truncate()     # remove remaining part
 
     print('Created in: projects/'+project_name+'!')
+
+
+def ensurePathsExist(paths):
+    for path in paths:
+        if not os.path.exists(path):
+            os.makedirs(path)
