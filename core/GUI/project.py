@@ -1,4 +1,5 @@
 from core.lib import loader as load
+from core.lib import saver as save
 
 from tkinter import *
 from core.lib import compile_project
@@ -54,9 +55,25 @@ def files(project_name, root):
     button_create = Button(files_frame, text='Create!', command=gui_create_file).pack(side=LEFT)
 
 
+def save_edits():
+    markdown = textarea.get("1.0","end-1c")
+    
+    if len(markdown) > 0:
+        save.save(markdown, 'projects/'+global_project_name+'/content/'+global_path+'.md')
+        print(markdown)
+        print('saved: '+'projects/'+global_project_name+'/content/'+global_path+'.md')
+        return
+
+    print('Too short')
+
+
 def project(path, project_name):
     close()
-
+    
+    global global_path
+    global_path = path
+    global global_project_name
+    global_project_name = project_name
     global edit_file_frame
     edit_file_frame = Frame()
     edit_file_frame.pack(side=BOTTOM)
@@ -67,11 +84,12 @@ def project(path, project_name):
 
     markdown = load.raw('projects/'+project_name+'/content/'+path+'.md')
 
-    ment = StringVar()
-    ment.set(markdown)
+    global textarea
     textarea = Text(edit_file_frame, height=20)  # textvariable = ment,
     textarea.insert(END, markdown)
     textarea.pack()
+
+    button_save_edit = Button(edit_file_frame, text='Save changes', command=lambda: save_edits()).pack(side=BOTTOM)
 
 
 def gui_create_file():
