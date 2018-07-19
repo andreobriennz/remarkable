@@ -34,7 +34,7 @@ Then choose one of the following methods:
 - Open the user interface with `python3 manage.py start`
 - Select the project name from the menu
 - If you wish to create a new file, type the file name and click create
-- If you wish to edit a file, select it from the menu. Type the changes in the large text area and click 'Save changes'
+- If you wish to edit a file, select it from the menu. Type the changes in the large text area and click 'Save changes'. The project will then automatically recompile.
 
 **Manually**
 Editing projects can easily be done manually by creating and editing markdown files in projects/name_of_project/content/
