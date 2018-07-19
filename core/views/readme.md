@@ -1,0 +1,1 @@
+A place for view files related to the GUI *(not HTML)*

@@ -1,4 +1,11 @@
+'''
+Create frames and elements
+Handle create project on click
+'''
+
+
 from core.lib import create
+from core.views.lib import typography as fonts
 
 from tkinter import *
 import shutil
@@ -11,7 +18,6 @@ def gui_create_project():
     if len(project_name) > 0 and len(project_name) < 50 and '/' not in project_name:
         print(project_name)
         create.create(project_name)
-        # Tk.update()
     else:
         print('Invalid project name characters or length')
 
@@ -26,7 +32,7 @@ def index(root):
     bottom_frame = Frame(root)
     bottom_frame.pack()
 
-    title = Label(top_frame, text='Create a new project', font='Helvetica 18 bold').pack()
+    title = Label(top_frame, text='Create a new project', font=fonts.h2).pack()
     description = Label(top_frame, text='Enter project name:').pack()
 
     global ment
@@ -36,13 +42,6 @@ def index(root):
     button_create = Button(bottom_frame, text = 'Create!', command = gui_create_project).pack( side = LEFT )
 
     return root
-
-# # alt way to consider calling function:
-# def gui_create_project_onclick( event ):
-#     create( 'test1' )
-# button_create.bind( '<Button-1>', gui_create_project ) 
-# # '<Button-1>' is *left* click event. '<Button-2>' is *middle* click event. '<Button-3>' is *right* click event.
-# button_create.pack( side = LEFT )
 
 
 def close():

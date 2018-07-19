@@ -1,6 +1,14 @@
-from core.lib import loader as load
-from core.lib import saver as save
-from core.lib import compile_project
+'''
+Open project files list
+Handle selecting file
+Handle creating file
+'''
+
+
+from core.lib import load
+from core.lib import save
+from core.lib import _compile
+from core.views.lib import typography as fonts
 
 from tkinter import *
 import os
@@ -42,7 +50,7 @@ def files(project_name, root):
 
     space = Label(files_frame, text='').pack()
 
-    title = Label(files_frame, text=project_name.title(), font='Helvetica 18 bold').pack()
+    title = Label(files_frame, text=project_name.title(), font=fonts.h2).pack()
 
     for path in paths:
         file = Button(files_frame, text=path, command=lambda path=path: project(path, project_name)).pack()
@@ -53,44 +61,6 @@ def files(project_name, root):
     file_name_input = Entry(files_frame, textvariable=file_ment).pack()
 
     button_create = Button(files_frame, text='Create!', command=gui_create_file).pack(side=LEFT)
-
-
-def save_edits():
-    markdown = textarea.get("1.0","end-1c")
-    
-    if len(markdown) > 0:
-        save.save(markdown, 'projects/'+global_project_name+'/content/'+global_path+'.md')
-        print('saved: '+'projects/'+global_project_name+'/content/'+global_path+'.md')
-
-        compile_project.index(global_project_name)
-        return
-
-    print('Too short')
-
-
-def project(path, project_name):
-    close()
-    
-    global global_path
-    global_path = path
-    global global_project_name
-    global_project_name = project_name
-    global edit_file_frame
-    edit_file_frame = Frame()
-    edit_file_frame.pack(side=BOTTOM)
-
-    space = Label(edit_file_frame, text='').pack()
-
-    title = Label(edit_file_frame, text=project_name.title()+': '+path, font='Helvetica 18 bold').pack()
-
-    markdown = load.raw('projects/'+project_name+'/content/'+path+'.md')
-
-    global textarea
-    textarea = Text(edit_file_frame, height=20)  # textvariable = ment,
-    textarea.insert(END, markdown)
-    textarea.pack()
-
-    button_save_edit = Button(edit_file_frame, text='Save changes', command=lambda: save_edits()).pack(side=BOTTOM)
 
 
 def gui_create_file():
@@ -107,14 +77,3 @@ def gui_create_file():
         file.close()
     else:
         print('Invalid project name characters or length')
-
-
-def close():
-    try:
-        edit_file_frame.pack_forget()
-        edit_file_frame.destroy()
-        print('closed project edit')
-    except NameError:
-        print('nothing to close')
-    # else:
-    #     print('')
