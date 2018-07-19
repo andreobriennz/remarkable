@@ -1,9 +1,5 @@
 # Chapter 1
 
-<script>alert()</script>
-
-<style>* { display: none; }</style>
-
 <strong>Yuccie williamsburg</strong> godard ennui wayfarers kale chips 8-bit authentic paleo enamel pin portland artisan irony thundercats. Pok pok food truck banjo shoreditch messenger bag. Brunch gochujang whatever semiotics drinking vinegar. Post-ironic disrupt YOLO hell of prism woke. Vegan hammock whatever, leggings cliche bespoke disrupt flannel cray DIY gentrify craft beer lomo williamsburg.
 
 Fashion axe butcher single-origin coffee unicorn kombucha prism irony hexagon, banh mi gochujang +1. Swag deep v pitchfork cloud bread enamel pin pabst heirloom. VHS ugh poutine franzen pok pok YOLO. Palo santo lomo twee hexagon 8-bit neutra helvetica listicle keytar tilde plaid authentic pickled messenger bag. Vegan four loko keytar migas thundercats lumbersexual fixie everyday carry ugh photo booth live-edge cornhole pinterest literally. Jianbing portland mustache everyday carry affogato vape crucifix truffaut ramps readymade fixie cray locavore. Master cleanse hot chicken occupy lo-fi hexagon edison bulb irony taiyaki.
