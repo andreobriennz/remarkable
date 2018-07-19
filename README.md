@@ -1,15 +1,11 @@
 # remarkable 
-**Python Site and Subsite Generator: Combine and compile markdown files into a website with automatically generated styling to suit**
-
-Note: This project is currently under development. There will be bugs, and the project may change suddenly. It is also recommended to keep a backup of any important work as there is a small chance of a bug causing a loss of content when workign through the GUI.
-
-Note: This project assumes a basic knowledge of the terminal, HTML and markdown files in order to use it.
 
 ## What Does this Project Do?
-- Takes markdown files, convert them to HTML, concatenate these files together, along with page partials, and generates a website from this
-- Automates and simplifies this process via a GUI and CLI to create and edit projects
-- Lets you manage multiple sites/projects together in a modular way
-- Generates sites as a single page app (coming soon)
+Remarkable turns a folder full of *markdown* files into a single *markup* file, complete with styling and partials such as a nav and footer. You can do this via a GUI (user interface) of manually by creating the files (if editing manually use the CLI to compile code). It can also handle multiple projects.
+
+Note: Remarkable is currently under development. There will be bugs, and the project may change suddenly. It is also recommended to keep a backup of any important work as there is a very small chance of a bug causing a loss of content when working through the GUI.
+
+Note: Remarkable assumes a basic knowledge of the terminal, HTML and markdown files in order to use it.
 
 ## How to Use
 ### 1. Create Project
@@ -19,14 +15,11 @@ You will also need pip installed (`sudo easy_install pip`), as well as the markd
 Then choose one of the following methods:
 
 **Via User Interface**
-- `3 manage.py open` or `python3 manage.py start` to create the project via the new user interface!
-- Follow on screen prompts to create a project (note that editing project is not yet supported)
+- `python3 manage.py start` to create the project via the new user interface!
+- Follow on screen prompts to create a project
 
-**Via CLI or manually**
-- Create a new project with `python3 manage.py create=name_of_project`
-
-
-- There will be a folder created in the 'projects/' directory matching the name of your new project. This is where all your project specific code and content is. Inside here, you will see a directory called 'content' - this is where you put all your content (blogs, book chapters, etc). Content in here should be all in markdown (files ending in .md)
+**Manually**
+- Create a new project with `python3 manage.py create=name_of_project` and Remarkable will create a new project in the 'projects/' directory matching the name of your new project
 
 
 ### 2. Edit Project
@@ -39,7 +32,8 @@ Then choose one of the following methods:
 **Manually**
 Editing projects can easily be done manually by creating and editing markdown files in projects/name_of_project/content/
 
-### 3. Compile to Website
+### 3. Compile to Website (automatic when working via user interface)
+If not using the GUI:
 - Compile changes with `python3 manage.py compile=name_of_project`
 - Site will appear in public/name_of_project
 
