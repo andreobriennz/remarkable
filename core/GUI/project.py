@@ -1,8 +1,8 @@
 from core.lib import loader as load
 from core.lib import saver as save
+from core.lib import compile_project
 
 from tkinter import *
-from core.lib import compile_project
 import os
 
 
@@ -60,8 +60,9 @@ def save_edits():
     
     if len(markdown) > 0:
         save.save(markdown, 'projects/'+global_project_name+'/content/'+global_path+'.md')
-        print(markdown)
         print('saved: '+'projects/'+global_project_name+'/content/'+global_path+'.md')
+
+        compile_project.index(global_project_name)
         return
 
     print('Too short')

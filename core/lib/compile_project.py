@@ -59,3 +59,5 @@ def index(project_name):
     page = layout.page()
 
     saver.save(page, 'public/'+name+'/index.html')
+
+    print('Compiled!')
