@@ -15,7 +15,7 @@ def get(markdown_paths, root_path, name):
             markdown_paths = []
             for file in files:
                 markdown_paths.append(markdown_path+file[:-3])
-            main += get_html(markdown_paths, root_path)
+            main += get(markdown_paths, root_path, name)
                 
         else:
             markup = load.html(root_path+'content/'+markdown_path+'.md')

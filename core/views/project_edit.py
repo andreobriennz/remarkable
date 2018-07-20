@@ -5,37 +5,37 @@ On click, save content from project text area
 '''
 
 
-def save_edits():
-    markdown = textarea.get("1.0","end-1c")
-    
-    if len(markdown) > 0:
-        save.save(markdown, 'projects/'+global_project_name+'/content/'+global_path+'.md')
-        print('saved: '+'projects/'+global_project_name+'/content/'+global_path+'.md')
-
-        _compile.index(global_project_name)
+def save_edits():    
+    if len(markdown) < 10:
+        print('Too short to save')
         return
+    
+    markdown = textarea.get("1.0","end-1c")
+    save.save(markdown, 'projects/'+global_project_name+'/content/'+global_path+'.md')
 
-    print('Too short')
+    _compile.compile(global_project_name)
 
 
-def project(path, project_name):
+def view_project(path, project_name):
     close()
     
     global global_path
-    global_path = path
     global global_project_name
-    global_project_name = project_name
     global edit_file_frame
+    global textarea
+
+    global_path = path
+    global_project_name = project_name
+
     edit_file_frame = Frame()
     edit_file_frame.pack(side=BOTTOM)
 
-    space = Label(edit_file_frame, text='').pack()
+    br = Label(edit_file_frame, text='').pack()
 
     title = Label(edit_file_frame, text=project_name.title()+': '+path, font=fonts.h2).pack()
 
     markdown = load.raw('projects/'+project_name+'/content/'+path+'.md')
 
-    global textarea
     textarea = Text(edit_file_frame, height=20)  # textvariable = ment,
     textarea.insert(END, markdown)
     textarea.pack()

@@ -12,17 +12,11 @@ import shutil
 import json
 
 
-def gui_create_project():
-    project_name = ment.get().replace(' ', '_')
-    
-    if len(project_name) > 0 and len(project_name) < 50 and '/' not in project_name:
-        print(project_name)
-        create.create(project_name)
-    else:
-        print('Invalid project name characters or length')
+def handle_create_project():
+    create.project(ment)
 
 
-def index(root):
+def view_create_project(root):
     global top_frame
     global bottom_frame
 
