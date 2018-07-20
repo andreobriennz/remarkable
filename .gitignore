@@ -2,6 +2,9 @@
 kube-flexbox/
 trash/
 
+public/
+projects/
+
 ### MAC OS ###
 # General
 .DS_Store
