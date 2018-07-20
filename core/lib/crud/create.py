@@ -33,7 +33,7 @@ def project(project_name):
 def file(file_path, file_name):
     file_name = file_name.replace(' ', '_')
 
-    if len(file_name) < 2 or len(file_name) < 50 or '/' in file_name:
+    if len(file_name) < 2 or len(file_name) > 50 or '/' in file_name:
         print('Invalid project name characters or length')
         return
 
