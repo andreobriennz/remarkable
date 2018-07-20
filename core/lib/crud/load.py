@@ -9,7 +9,6 @@ def html(path):
     text = bleach.clean(text)
     html = markdown.markdown(text)
     html = bleach.linkify(html)
-    html = text
 
     file.close()
 
