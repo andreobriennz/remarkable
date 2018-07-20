@@ -4,8 +4,8 @@ Handle create project on click
 '''
 
 
-from core.lib import create
-from core.views.lib import typography as fonts
+from core.lib.crud import create
+from core.lib.styles import typography as fonts
 
 from tkinter import *
 import shutil
@@ -13,7 +13,7 @@ import json
 
 
 def handle_create_project():
-    create.project(ment)
+    create.project(ment.get())
 
 
 def view_create_project(root):
@@ -43,4 +43,4 @@ def close():
     bottom_frame.pack_forget()
     top_frame.destroy()
     bottom_frame.destroy()
-    print('closed top create')
+    print('Closed create')

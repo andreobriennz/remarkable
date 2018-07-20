@@ -5,17 +5,16 @@ Close frame when project open
 '''
 
 
-from core.views import project
-from core.views.lib import typography as fonts
+from core.views import project_edit
+from core.views import project_files
+from core.lib.styles import typography as fonts
 
 from tkinter import *
 import os
 
-import imp
-
 
 def open_project(project_name, root):
-    project.files(project_name, root)
+    project_files.view_files(project_name, root)
     close()
 
 
@@ -42,4 +41,4 @@ def view_projects(root):
 def close():
     projects_frame.pack_forget()
     projects_frame.destroy()
-    print('closed project')
+    print('Closed projects frame')

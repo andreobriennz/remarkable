@@ -5,12 +5,24 @@ On click, save content from project text area
 '''
 
 
-def save_edits():    
-    if len(markdown) < 10:
+from core.lib.crud import load
+from core.lib.crud import save
+from core.lib.crud import _compile
+from core.lib.crud import create
+from core.views import project_edit
+from core.lib.styles import typography as fonts
+
+
+from tkinter import *
+
+
+def save_edits():
+    markdown = textarea.get("1.0","end-1c")
+
+    if len(markdown) < 1:
         print('Too short to save')
         return
     
-    markdown = textarea.get("1.0","end-1c")
     save.save(markdown, 'projects/'+global_project_name+'/content/'+global_path+'.md')
 
     _compile.compile(global_project_name)
@@ -47,6 +59,6 @@ def close():
     try:
         edit_file_frame.pack_forget()
         edit_file_frame.destroy()
-        print('closed project edit')
+        print('Closed project edit frame')
     except NameError:
         print('nothing to close')

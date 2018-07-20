@@ -12,10 +12,10 @@ import imp
 def index():
     root = Tk()
 
-    create_project = imp.load_source('create', 'core/views/create_project.py')
-    root = view_create_project.index(root)
+    create_project = imp.load_source('create_project', 'core/views/create_project.py')
+    root = create_project.view_create_project(root)
 
-    projects = imp.load_source('create', 'core/views/projects.py')
+    projects = imp.load_source('projects', 'core/views/projects.py')
     root = projects.view_projects(root)
     
     root.mainloop()

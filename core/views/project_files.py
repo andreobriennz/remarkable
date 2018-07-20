@@ -5,19 +5,22 @@ Handle creating file
 '''
 
 
-from core.lib import load
-from core.lib import save
-from core.lib import _compile
-from core.views.lib import typography as fonts
+from core.lib.crud import load
+from core.lib.crud import save
+from core.lib.crud import _compile
+from core.lib.crud import create
+from core.views import project_edit
+from core.lib.styles import typography as fonts
 
 from tkinter import *
 import os
+import imp
 
 
 file_ment = StringVar()
 
 
-def get_markdown_paths(markdown_paths):
+def get_markdown_paths(markdown_paths, project_name):
     paths = []
 
     for markdown_path in markdown_paths:
@@ -36,6 +39,8 @@ def get_markdown_paths(markdown_paths):
 
 
 def view_files(project_name, root):
+    handle_close_create_project()
+
     global _global_project_name 
     _global_project_name = project_name
     import json
@@ -46,7 +51,7 @@ def view_files(project_name, root):
     project_details = data['projects'][project_name]
     markdown_paths = project_details['sections']
 
-    paths = get_markdown_paths(markdown_paths)
+    paths = get_markdown_paths(markdown_paths, project_name)
 
     global files_frame
     files_frame = Frame()
@@ -57,7 +62,7 @@ def view_files(project_name, root):
     title = Label(files_frame, text=project_name.title(), font=fonts.h2).pack()
 
     for path in paths:
-        file = Button(files_frame, text=path, command=lambda path=path: project(path, project_name)).pack()
+        file = Button(files_frame, text=path, command=lambda path=path: project_edit.view_project(path, project_name)).pack()
 
     title = Label(files_frame, text='Create new file:').pack()
 
@@ -69,3 +74,8 @@ def view_files(project_name, root):
 def handle_create_file():
     file_name = file_ment.get()
     create.file('projects/'+_global_project_name+'/content/', file_name+'.md')
+
+
+def handle_close_create_project():
+    create_project = imp.load_source('create_project', 'core/views/create_project.py')
+    create_project.close()
