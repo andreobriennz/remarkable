@@ -39,7 +39,7 @@ def index(root):
     ment = StringVar()
     project_name_input = Entry(bottom_frame, textvariable=ment).pack()
 
-    button_create = Button(bottom_frame, text = 'Create!', command = gui_create_project).pack( side = LEFT )
+    button_create = Button(bottom_frame, text = 'Create!', command = handle_create_project).pack( side = LEFT )
 
     return root
 

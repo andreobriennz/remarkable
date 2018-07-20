@@ -19,7 +19,7 @@ def open_project(project_name, root):
     close()
 
 
-def index(root):
+def view_projects(root):
     global projects_frame
     projects_frame = Frame(root)
     projects_frame.pack(side=BOTTOM)

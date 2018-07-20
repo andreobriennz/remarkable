@@ -1,7 +1,9 @@
-from core.lib import load
-from core.lib import save
+from core.lib.crud import load
+from core.lib.crud import save
 
-def get_html(markdown_paths, root_path):
+import os
+
+def get(markdown_paths, root_path, name):
     main = ''
     
     for markdown_path in markdown_paths:

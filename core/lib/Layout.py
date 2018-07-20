@@ -1,6 +1,6 @@
-from core.lib import loader as load
+from core.lib.crud import load
+from core.lib.crud import load_sections
 
-from pathlib import Path
 import datetime
 
 

@@ -1,4 +1,6 @@
-from core.lib import load
+from core.lib.crud import load
+
+from pathlib import Path
 
 
 def load_section(path, tag='div'):

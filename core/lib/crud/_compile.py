@@ -1,7 +1,7 @@
-from core.lib import load
-from core.lib import save
-from core.lib import get_html
-from core.lib import create
+from core.lib.crud import load
+from core.lib.crud import save
+from core.lib.crud import get_html
+from core.lib.crud import create
 from core.lib import Layout
 
 import os
@@ -21,7 +21,7 @@ def compile(project_name):
 
     create.ensurePathsExist(['public/'+name, 'public/'+name+'/content/'])
 
-    main = get_html(markdown_paths, root)
+    main = get_html.get(markdown_paths, root, name)
 
     layout = Layout.Layout(
         project_details,
