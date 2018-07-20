@@ -1,50 +1,5 @@
 {
     "projects": {
-        "book": {
-            "name": "book",
-            "theme": "blog",
-            "title": "",
-            "subtitle": "",
-            "sections": [
-                "part_1/*",
-                "part_1/chapter_1"
-            ]
-        },
-        "book2": {
-            "name": "book2",
-            "theme": "blog",
-            "title": "",
-            "subtitle": "",
-            "sections": [
-                "example"
-            ]
-        },
-        "test_wildcard": {
-            "name": "test_wildcard",
-            "theme": "",
-            "title": "",
-            "subtitle": "",
-            "sections": [
-                "*"
-            ]
-        },
-        "new": {
-            "name": "new",
-            "theme": "",
-            "title": "",
-            "subtitle": "",
-            "sections": [
-                "*"
-            ]
-        },
-        "new2": {
-            "name": "new2",
-            "theme": "",
-            "title": "",
-            "subtitle": "",
-            "sections": [
-                "*"
-            ]
-        }
+
     }
 }

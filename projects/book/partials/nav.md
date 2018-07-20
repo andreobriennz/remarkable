@@ -1,5 +1,0 @@
-[Home](/)
-[Latest](/latest)
-[Most Popular](/most-popular)
-[More](/more)
-[Test 2](/test2)
