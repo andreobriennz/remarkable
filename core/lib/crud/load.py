@@ -1,14 +1,14 @@
-# import markdown
-# import bleach
+import markdown
+import bleach
 
 
 def html(path):
     file = open(path, 'r+')
 
     text = file.read()
-    # text = bleach.clean(text)
-    # html = markdown.markdown(text)
-    # html = bleach.linkify(html)
+    text = bleach.clean(text)
+    html = markdown.markdown(text)
+    html = bleach.linkify(html)
     html = text
 
     file.close()
