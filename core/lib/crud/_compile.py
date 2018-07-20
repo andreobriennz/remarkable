@@ -19,7 +19,7 @@ def compile(project_name):
     root = 'projects/'+name+'/'
     markdown_paths = project_details['sections']
 
-    create.ensurePathsExist(['public/'+name, 'public/'+name+'/content/'])
+    create.ensurePathsExist(['public', 'public/'+name, 'public/'+name+'/content/'])
 
     main = get_html.get(markdown_paths, root, name)
 
